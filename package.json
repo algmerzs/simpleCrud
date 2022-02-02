@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple crud app using the MVC pattern",
   "main": "app.js",
+  "engines": {
+    "node" : "14.x"
+  },
   "scripts": {
     "start": "node index.js"
   },
