@@ -9,7 +9,7 @@ const {
 } = require("../controllers/customer");
 
 // Get all customers
-router.get("/", getAll);
+router.get("/customer", getAll);
 
 // Post a customer
 router.post("/add", postCustomer);
