@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+        <title><%= title %></title>
+    </head>
+    <body>
+        <nav class="navbar narbar-dark bg-dark">
+            <a
+                href="/"
+                class="navbar-brand text-white"
+                style="padding-left: 50px"
+            >
+                Clientes
+            </a>
+        </nav>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form
+                                action="/update/<%=data.customer_id%>"
+                                method="post"
+                            >
+                                <div class="form-group">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value="<%=data.name%>"
+                                        placeholder="Nombre"
+                                        class="form-control mb-2"
+                                        required
+                                    />
+                                    <input
+                                        type="text"
+                                        name="address"
+                                        placeholder="Dirección"
+                                        value="<%=data.address%>"
+                                        class="form-control mb-2"
+                                        required
+                                    />
+                                    <input
+                                        type="text"
+                                        name="phone"
+                                        placeholder="Teléfono"
+                                        value="<%=data.phone%>"
+                                        class="form-control mb-2"
+                                        required
+                                    />
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary"
+                                    >
+                                        Editar cliente
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

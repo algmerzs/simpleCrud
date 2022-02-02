@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+        <title><%= title %></title>
+    </head>
+    <body>
+        <nav class="navbar narbar-dark bg-dark">
+            <a
+                href="/"
+                class="navbar-brand text-white"
+                style="padding-left: 50px"
+            >
+                Clientes
+            </a>
+        </nav>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-7">
+                    <table class="table table-borderer table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if(data){ %> <% for(var i = 0; i < data.length;
+                            i++ ) { %>
+                            <tr>
+                                <td><%= i%></td>
+                                <td><%=data[i].name%></td>
+                                <td><%=data[i].address%></td>
+                                <td><%=data[i].phone%></td>
+                                <td>
+                                    <a
+                                        href="/delete/<%=data[i].customer_id%>"
+                                        class="btn btn-danger"
+                                        >Eliminar</a
+                                    >
+                                    <a
+                                        href="/update/<%=data[i].customer_id%>"
+                                        class="btn btn-info"
+                                        >Editar</a
+                                    >
+                                </td>
+                            </tr>
+                            <% } %> <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-5">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Nombre"
+                                class="form-control mb-2"
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="address"
+                                placeholder="Dirección"
+                                class="form-control mb-2"
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="phone"
+                                placeholder="Teléfono"
+                                class="form-control mb-2"
+                                required
+                            />
+                            <button type="submit" class="btn btn-primary">
+                                Guardar cliente
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
